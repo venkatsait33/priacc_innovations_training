@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const today = new Date();
+      const nextYear = today.getFullYear() + 1;
+      const newYearDate = new Date(nextYear, 0, 1); // Jan 1 of next year
+      const msDiff = newYearDate.getTime() - today.getTime();
+      const daysRemaining = Math.ceil(msDiff / (1000 * 60 * 60 * 24));
+      console.log("Days remaining until New Year:", daysRemaining);
+    </script>
+  </head>
+  <body>
+    <h1>Calculate days remaining until next New Year</h1>
+  </body>
+</html>
