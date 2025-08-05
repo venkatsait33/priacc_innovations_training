@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Keyboard Events -->
+    <input type="text" id="keyboardInput" placeholder="Type something..." />
+
+    <script>
+         // Keyboard Events
+            const keyboardInput = document.getElementById("keyboardInput");
+            document.addEventListener("keydown", function (e) {
+                console.log("Key down: " + e.key);
+            });
+
+            document.addEventListener("keyup", function (e) {
+                console.log("Key released: " + e.key);
+            });
+
+            document.addEventListener("keypress", function (e) {
+                console.log("Key pressed: " + e.key);
+            });
+    </script>
+</body>
+</html>

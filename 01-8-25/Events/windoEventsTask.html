@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Window Events</h1>
+    <script> // Window Events
+        window.addEventListener("load", function () {
+            console.log("Page fully loaded");
+        });
+
+        window.addEventListener("resize", function () {
+            console.log("Window resized");
+        });
+
+        window.addEventListener("scroll", function () {
+            console.log("Scrolling...");
+        });
+
+        window.addEventListener("unload", function () {
+            console.log("Page is unloading");
+        });
+
+        // Touch Events (for mobile)
+        document.addEventListener("touchstart", function () {
+            console.log("Touch started");
+        });
+
+        document.addEventListener("touchend", function () {
+            console.log("Touch ended");
+        });
+
+        document.addEventListener("touchmove", function () {
+            console.log("Touch moving");
+        });</script>
+</body>
+
+</html>

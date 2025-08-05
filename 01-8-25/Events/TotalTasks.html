@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Events – Tasks</title>
+    <style>
+        #mouseBox,
+        #touchBox,
+        #moveBox {
+            width: 300px;
+            height: 150px;
+            border: 2px dashed #888;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        #moveBox {
+            height: 200px;
+            background: #f1f1f1;
+            position: relative;
+        }
+
+        #moveCoords {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-weight: bold;
+        }
+
+        #touchBox {
+            background-color: #c5e1a5;
+        }
+
+        .warning {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Mouse Events</h2>
+
+    <!-- Click -->
+    <button id="changeBgBtn">Click to Change Background</button>
+
+    <!-- Double Click -->
+    <p id="dblPara">Double-click to increase font size</p>
+
+    <!-- Mouse Down -->
+    <div id="mouseBox">Press mouse here</div>
+    <p id="mouseDownMsg"></p>
+
+    <!-- Mouse Up -->
+    <img id="mouseImg" src="https://via.placeholder.com/150" alt="placeholder" />
+    <br><br>
+
+    <!-- Mouse Over -->
+    <button id="hoverBtn">Hover over me</button>
+
+    <!-- Mouse Out -->
+    <h3 id="heading">Hover and then move out of this heading</h3>
+
+    <!-- Mouse Move -->
+    <div id="moveBox">
+        <div id="moveCoords">X: 0, Y: 0</div>
+    </div>
+
+    <hr>
+
+    <h2>Keyboard Events</h2>
+
+    <h3 id="keyDisplay">Key pressed will appear here</h3>
+    <input type="text" id="keyInput" placeholder="Type here..." />
+    <p id="keyReleasedMsg"></p>
+    <p id="typedKeys"></p>
+
+    <hr>
+
+    <h2>Form Events</h2>
+
+    <form id="loginForm">
+        <input type="text" id="loginName" placeholder="Username" />
+        <input type="password" id="loginPass" placeholder="Password" />
+        <button type="submit">Login</button>
+    </form>
+    <br>
+
+    <select id="dropdown">
+        <option value="">Choose option</option>
+        <option value="React">React</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="Python">Python</option>
+    </select>
+    <p id="dropdownValue"></p>
+
+    <input type="text" id="focusInput" placeholder="Focus me" />
+    <br><br>
+
+    <input type="text" id="blurInput" placeholder="Blur validation" />
+    <p id="blurWarning" class="warning"></p>
+
+    <input type="text" id="liveInput" placeholder="Live typing..." />
+    <p id="liveValue"></p>
+
+    <hr>
+
+    <h2>Touch Events (Mobile Only)</h2>
+
+    <div id="touchBox">Touch me</div>
+    <p id="touchMsg"></p>
+
+    <hr>
+
+    <script>
+        // Mouse Events
+        document.getElementById("changeBgBtn").addEventListener("click", function () {
+            document.body.style.backgroundColor = "#e0f7fa";
+        });
+
+        document.getElementById("dblPara").addEventListener("dblclick", function () {
+            this.style.fontSize = "24px";
+        });
+
+        document.getElementById("mouseBox").addEventListener("mousedown", function () {
+            document.getElementById("mouseDownMsg").innerText = "Mouse is pressed down!";
+        });
+
+        document.getElementById("mouseImg").addEventListener("mouseup", function () {
+            this.src = "https://via.placeholder.com/150/ffcc80";
+        });
+
+        document.getElementById("hoverBtn").addEventListener("mouseover", function () {
+            this.innerText = "You're hovering!";
+        });
+
+        document.getElementById("heading").addEventListener("mouseout", function () {
+            this.style.color = "red";
+        });
+
+        document.getElementById("moveBox").addEventListener("mousemove", function (e) {
+            document.getElementById("moveCoords").innerText = `X: ${e.offsetX}, Y: ${e.offsetY}`;
+        });
+
+        // Keyboard Events
+        document.addEventListener("keydown", function (e) {
+            document.getElementById("keyDisplay").innerText = "Key down: " + e.key;
+        });
+
+        document.addEventListener("keyup", function () {
+            document.getElementById("keyReleasedMsg").innerText = "Key released";
+        });
+
+        document.getElementById("keyInput").addEventListener("keydown", function (e) {
+            const p = document.getElementById("typedKeys");
+            p.innerText += e.key + " ";
+        });
+
+        // Form Events
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            console.log("Form submitted successfully");
+        });
+
+        document.getElementById("dropdown").addEventListener("change", function () {
+            document.getElementById("dropdownValue").innerText = "Selected: " + this.value;
+        });
+
+        document.getElementById("focusInput").addEventListener("focus", function () {
+            this.style.border = "2px solid green";
+        });
+
+        document.getElementById("blurInput").addEventListener("blur", function () {
+            const warning = document.getElementById("blurWarning");
+            if (this.value.trim() === "") {
+                warning.innerText = "This field cannot be empty!";
+            } else {
+                warning.innerText = "";
+            }
+        });
+
+        document.getElementById("liveInput").addEventListener("input", function () {
+            document.getElementById("liveValue").innerText = "You typed: " + this.value;
+        });
+
+        // Window Events
+        window.addEventListener("load", function () {
+            alert("Page Loaded Successfully");
+        });
+
+        window.addEventListener("resize", function () {
+            console.log("Width:", window.innerWidth, "Height:", window.innerHeight);
+        });
+
+        window.addEventListener("scroll", function () {
+            console.log("You are scrolling...");
+        });
+
+        window.addEventListener("unload", function () {
+            console.log("Goodbye from the page");
+        });
+
+        // Touch Events
+        const touchBox = document.getElementById("touchBox");
+        const touchMsg = document.getElementById("touchMsg");
+
+        touchBox.addEventListener("touchstart", function () {
+            touchMsg.innerText = "Touch started";
+        });
+
+        touchBox.addEventListener("touchend", function () {
+            touchMsg.innerText = "Touch ended";
+        });
+
+        touchBox.addEventListener("touchmove", function (e) {
+            const touch = e.touches[0];
+            touchMsg.innerText = `Touch X: ${touch.clientX}, Y: ${touch.clientY}`;
+        });
+    </script>
+</body>
+
+</html>

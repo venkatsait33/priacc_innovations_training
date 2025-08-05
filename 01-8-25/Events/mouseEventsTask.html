@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse Events Example</title>
+    <style>
+        #box {
+            width: 150px;
+            height: 150px;
+            background-color: #90caf9;
+            margin: 10px 0;
+        }
+
+        #hover {
+            padding: 10px;
+            background-color: #a5d6a7;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Button for click event -->
+    <button id="btn">Click Me</button>
+
+    <!-- Div for dblclick event -->
+    <div id="box">Double-click me</div>
+
+    <!-- Paragraph for mouseover and mouseout -->
+    <p id="hover">Hover over me</p>
+
+    <script>
+        // click
+        document.getElementById("btn").addEventListener("click", function () {
+            alert("Button clicked");
+        });
+
+        // dblclick
+        document.getElementById("box").addEventListener("dblclick", function () {
+            console.log("Box double-clicked");
+        });
+
+        // mousedown
+        document.addEventListener("mousedown", function () {
+            console.log("Mouse button down");
+        });
+
+        // mouseup
+        document.addEventListener("mouseup", function () {
+            console.log("Mouse button released");
+        });
+
+        // mouseover
+        document.getElementById("hover").addEventListener("mouseover", function () {
+            console.log("Mouse over the element");
+        });
+
+        // mouseout
+        document.getElementById("hover").addEventListener("mouseout", function () {
+            console.log("Mouse left the element");
+        });
+
+        // mousemove
+        document.addEventListener("mousemove", function () {
+            console.log("Mouse moving");
+        });
+    </script>
+</body>
+
+</html>
