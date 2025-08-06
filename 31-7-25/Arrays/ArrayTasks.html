@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array-Tasks</title>
+</head>
+
+<body>
+    <h1>Array Tasks</h1>
+
+    <script>
+        // 1. Create an array of your 5 favorite movies and print each one using forEach:
+
+        let movies = ["Inception", "Interstellar", "Avatar", "Titanic", "The Dark Knight"];
+        movies.forEach(movie => console.log(movie));
+
+        // 2. Use map() to double each number:
+
+        let nums = [1, 2, 3, 4, 5];
+        let doubled = nums.map(num => num * 2);
+        console.log(doubled);
+
+        // 3. Use filter() to get even numbers:
+
+        let evenNums = nums.filter(num => num % 2 === 0);
+        console.log(evenNums);
+
+        // 4. Use reduce() to calculate sum:
+
+        let total = nums.reduce((acc, curr) => acc + curr, 0);
+        console.log(total);
+
+        // 5. Use push() and pop():
+
+        let fruits = ["apple", "banana"];
+        fruits.push("grape");
+        console.log(fruits); // ["apple", "banana", "grape"]
+        fruits.pop();
+        console.log(fruits); // ["apple", "banana"]
+
+        // 6. Merge two arrays using concat():
+
+        let arr1 = ["a", "b"];
+        let arr2 = ["c", "d"];
+        let merged = arr1.concat(arr2);
+        console.log(merged);
+
+        // 7. Check if value exists using includes():
+
+        console.log(fruits.includes("apple")); // true
+
+        // 8. Sort array of names alphabetically:
+
+        let names = ["Zara", "Alex", "John"];
+        names.sort();
+        console.log(names);
+
+        // 9. Create a copy of part of array using slice():
+
+        let colors = ["red", "green", "blue", "yellow"];
+        let copy = colors.slice(1, 3);
+        console.log(copy); // ["green", "blue"]
+
+        // 10. Find the longest string in an array:
+
+        function findLongestString(arr) {
+            return arr.reduce((longest, current) =>
+                current.length > longest.length ? current : longest
+            );        }
+
+        let namesList = ["Anna", "Elizabeth", "Christopher", "Tom"];
+        console.log(findLongestString(namesList)); // Christopher
+        
+    </script>
+</body>
+
+</html>
