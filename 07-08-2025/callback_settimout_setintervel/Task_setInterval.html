@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_setInterval</title>
+</head>
+
+<body>
+    <h1>Task setInterval</h1>
+    <div>
+        <p>Tasks on setInterval:
+
+            1. Print numbers from 1 to 10 every second.
+
+            2. Print "Loading.." every 2 seconds, stop after 5 times.
+
+            3. Countdown from 5 to 0, printing one number per second.
+
+            4. Print the current time every second (Hint: use new Date()), stop after 5 seconds.</p>
+    </div>
+    <script>
+        //  Tasks on setInterval
+        //     1. Print numbers from 1 to 10 every second
+
+        let num = 1;
+        let interval1 = setInterval(() => {
+            console.log(num);
+            if (num === 10) {
+                clearInterval(interval1);
+            }
+            num++;
+        }, 1000);
+
+        // 2. Print "Loading.." every 2 seconds, stop after 5 times
+
+        let count = 0;
+        let interval2 = setInterval(() => {
+            console.log("Loading..");
+            count++;
+            if (count === 5) {
+                clearInterval(interval2);
+            }
+        }, 2000);
+
+        // 3. Countdown from 5 to 0
+
+        let countdown = 5;
+        let interval3 = setInterval(() => {
+            console.log(countdown);
+            countdown--;
+            if (countdown < 0) {
+                clearInterval(interval3);
+            }
+        }, 1000);
+
+        // 4. Print current time every second, stop after 5 seconds
+
+        let secondsPassed = 0;
+        let interval4 = setInterval(() => {
+            let now = new Date();
+            console.log(now.toLocaleTimeString());
+
+            secondsPassed++;
+            if (secondsPassed === 5) {
+                clearInterval(interval4);
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

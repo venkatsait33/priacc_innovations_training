@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2 – Named Functions (Avoiding Anonymous Callbacks)</title>
+</head>
+
+<body>
+    <h1>Task 2 – Named Functions (Avoiding Anonymous Callbacks)</h1>
+    <p>Rewrite the above code using named functions instead of anonymous nested callbacks.</p>
+    <script>
+        function placeOrder(callback) {
+            setTimeout(() => {
+                console.log("Order placed");
+                callback();
+            }, 1000);
+        }
+
+        function cookFood(callback) {
+            setTimeout(() => {
+                console.log("Food cooked");
+                callback();
+            }, 1000);
+        }
+
+        function serveFood(callback) {
+            setTimeout(() => {
+                console.log("Food served");
+                callback();
+            }, 1000);
+        }
+
+        function makePayment() {
+            setTimeout(() => {
+                console.log("Payment done");
+            }, 1000);
+        }
+
+        // Named callback functions
+        function afterOrder() {
+            cookFood(afterCook);
+        }
+
+        function afterCook() {
+            serveFood(afterServe);
+        }
+
+        function afterServe() {
+            makePayment();
+        }
+
+        // Start process
+        placeOrder(afterOrder);
+
+    </script>
+</body>
+
+</html>

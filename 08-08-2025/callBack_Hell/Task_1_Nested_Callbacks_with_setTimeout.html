@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1 – Nested Callbacks with setTimeout</title>
+</head>
+
+<body>
+    <h1>Task 1 – Nested Callbacks with setTimeout</h1>
+
+    <p>
+        Create 4 functions using nested callbacks with setTimeout: placeOrder cookFood serveFood makePayment Simulate
+        them to
+        run in sequence.
+    </p>
+
+    <script>
+        function placeOrder(callback) {
+            setTimeout(() => {
+                console.log("Order placed");
+                callback();
+            }, 1000);
+        }
+
+        function cookFood(callback) {
+            setTimeout(() => {
+                console.log("Food cooked");
+                callback();
+            }, 1000);
+        }
+
+        function serveFood(callback) {
+            setTimeout(() => {
+                console.log("Food served");
+                callback();
+            }, 1000);
+        }
+
+        function makePayment() {
+            setTimeout(() => {
+                console.log("Payment done");
+            }, 1000);
+        }
+
+        // Nested callbacks (Callback Hell)
+        placeOrder(() => {
+            cookFood(() => {
+                serveFood(() => {
+                    makePayment();
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

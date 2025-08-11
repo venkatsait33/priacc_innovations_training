@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3 (Advanced) – Nested Callback Functions</title>
+</head>
+
+<body>
+    <h2>Task 3 (Advanced) – Nested Callback Functions</h2>
+
+    <p>Create nested callback functions for: bookTicket sendConfirmationEmail generateBoardingPass trackFlight</p>
+
+    <script>
+        function bookTicket(callback) {
+            setTimeout(() => {
+                console.log("Ticket booked");
+                callback();
+            }, 1000);
+        }
+
+        function sendConfirmationEmail(callback) {
+            setTimeout(() => {
+                console.log("Confirmation email sent");
+                callback();
+            }, 1000);
+        }
+
+        function generateBoardingPass(callback) {
+            setTimeout(() => {
+                console.log("Boarding pass generated");
+                callback();
+            }, 1000);
+        }
+
+        function trackFlight() {
+            setTimeout(() => {
+                console.log("Flight tracking started");
+            }, 1000);
+        }
+
+        // Nested sequence
+        bookTicket(() => {
+            sendConfirmationEmail(() => {
+                generateBoardingPass(() => {
+                    trackFlight();
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

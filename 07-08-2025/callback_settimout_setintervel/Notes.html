@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback, setInterval, setTimeout</title>
+</head>
+
+<body>
+    <script>
+        //         1. Callback
+        //             Definition:
+        // A callback is a function passed as an argument to another function and executed later, usually after a task is completed.
+        // Used for asynchronous operations like reading files, API calls, and timers.
+
+        // Example:
+
+
+        function greet(name, callback) {
+            console.log("Hello " + name);
+            callback();
+        }
+
+        function sayBye() {
+            console.log("Goodbye!");
+        }
+
+        greet("Priacc", sayBye);
+
+
+        //         2. setTimeout
+        //         Purpose:
+        // Executes a function once after a specified delay(in milliseconds).
+
+        //             Syntax:
+        // setTimeout(function, delayInMilliseconds);
+
+        // Example:
+        console.log("Start");
+
+        setTimeout(function () {
+            console.log("This runs after 2 seconds");
+        }, 2000);
+
+        console.log("End");
+
+
+        //         3. setInterval
+        //         Purpose:
+        // Executes a function repeatedly at a specified time interval until cleared.
+
+
+        //             Syntax:
+        // setInterval(function, intervalInMilliseconds);
+        // Example:
+
+
+        let count = 0;
+        let intervalId = setInterval(function () {
+            count++;
+            console.log("Interval Count: " + count);
+
+            if (count === 5) {
+                clearInterval(intervalId); // stop after 5 times
+            }
+        }, 1000);
+
+        //         4. Call Stack
+        //         Definition:
+        // A data structure that keeps track of function calls.
+
+        // Functions are pushed onto the stack when called.
+
+        // Functions are popped when they return.
+
+        //             Example:
+
+
+        function first() {
+            second();
+            console.log("First function");
+        }
+
+        function second() {
+            console.log("Second function");
+        }
+
+        first();
+        // Execution Flow:
+
+        //  first() pushed to stack.
+
+        //second() called → pushed to stack.
+
+        //second() runs → popped from stack.
+
+        // first() continues → logs message → popped from stack.
+
+        // 5. Event Loop
+        //             Definition:
+        // The event loop continuously checks:
+
+        // If the call stack is empty.
+
+        // If so, it takes the first function from the callback queue and pushes it to the stack.
+
+        // Purpose:
+        // Handles asynchronous behavior in JavaScript.
+
+        // 6. Callback Queue
+        //             Definition:
+        // A waiting list for functions from asynchronous tasks(e.g., setTimeout, DOM events).
+        // When the call stack is empty, the event loop moves functions from the callback queue to the stack for execution.
+    </script>
+</body>
+
+</html>

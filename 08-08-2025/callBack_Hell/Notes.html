@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //         1. What is Callback Hell ?
+        //                 Definition :
+        //                 Callback Hell occurs in JavaScript when many asynchronous functions are written with nested callbacks.
+
+        // This creates a pyramid structure that’s difficult to read, debug, and maintain.
+
+        // Commonly happens when multiple tasks need to run in sequence and depend on each other.
+
+        // Also called "Pyramid of Doom".
+
+        // 2. Theoretical Explanation
+        // JavaScript uses callbacks for async operations like:
+
+        // Fetching data
+
+        // Reading files
+
+        //             Timers(setTimeout, setInterval)
+
+        // If tasks depend on the result of previous tasks, callbacks get nested.
+
+        // Deep nesting → poor readability and maintainability.
+
+        // 3. Example of Callback Hell
+
+        function registerUser(callback) {
+            setTimeout(() => {
+                console.log("User Registered");
+                callback();
+            }, 1000);
+        }
+
+        function sendWelcomeEmail(callback) {
+            setTimeout(() => {
+                console.log("Welcome Email Sent");
+                callback();
+            }, 1000);
+        }
+
+        function loginUser(callback) {
+            setTimeout(() => {
+                console.log("User Logged In");
+                callback();
+            }, 1000);
+        }
+
+        function showDashboard() {
+            setTimeout(() => {
+                console.log("Dashboard Loaded");
+            }, 1000);
+        }
+
+        // Callback Hell Structure
+        registerUser(() => {
+            sendWelcomeEmail(() => {
+                loginUser(() => {
+                    showDashboard();
+                });
+            });
+        });
+        // 4. Output
+        // User Registered
+        // Welcome Email Sent
+        // User Logged In
+        // Dashboard Loaded
+
+        //5. Why is it called "Hell" ?
+        // Code grows horizontally like a pyramid.
+
+        // Hard to read, debug, and modify.
+
+        // Complex error handling.
+
+        // Becomes unmaintainable for large projects.
+
+        // 6. Advantages of Callbacks
+        // Easy to use for simple async tasks.
+
+        // Works well for 1–2 steps(e.g., setTimeout, event listeners, single API call).
+
+        // 7. Disadvantages of Callback Hell
+        // ❌ Deeply nested code.
+        // ❌ Difficult to read and maintain.
+        // ❌ Hard to manage errors.
+        // ❌ Poor scalability.
+        // ❌ Cannot easily reuse functions.
+        // ❌ No clean flow control.
+    </script>
+</body>
+
+</html>

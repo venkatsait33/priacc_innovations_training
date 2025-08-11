@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_setTimeout</title>
+</head>
+
+<body>
+    <h1>Tasks setTimeout</h1>
+
+    <p>
+        Tasks on setTimeout:
+        
+        1. Print "Hello Iswarya" after 2 seconds.
+        
+        2. Show "Time's up!" after a 5-second delay.
+        
+        3. Display three different messages at 1s, 2s, and 3s using three setTimeouts.
+        
+        4. Create a function that accepts a message and delay, and prints the message after the delay.
+    </p>
+    <script>
+        // 1. Print "Hello Iswarya" after 2 seconds
+
+        setTimeout(() => {
+            console.log("Hello Iswarya");
+        }, 2000);
+
+        // 2. Show "Time's up!" after a 5 - second delay
+
+        setTimeout(() => {
+            console.log("Time's up!");
+        }, 5000);
+
+        // 3. Display three different messages at 1s, 2s, and 3s
+
+        setTimeout(() => console.log("Message 1"), 1000);
+        setTimeout(() => console.log("Message 2"), 2000);
+        setTimeout(() => console.log("Message 3"), 3000);
+
+        // 4. Function that accepts a message and delay
+
+        function delayedMessage(message, delay) {
+            setTimeout(() => {
+                console.log(message);
+            }, delay);
+        }
+
+        delayedMessage("Hello after 2 seconds", 2000);
+        delayedMessage("This took 4 seconds", 4000);
+
+    </script>
+</body>
+
+</html>
