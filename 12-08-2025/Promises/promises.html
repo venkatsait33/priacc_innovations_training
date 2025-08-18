@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+    <h1>Promises</h1>
+
+    <script>
+        let myPromise = new Promise((resolve, reject) => {
+                let success = true;
+
+                setTimeout(() => {
+                    if (success) {
+                        resolve("Operation successful");
+                    } else {
+                        reject("Operation failed");
+                    }
+                }, 2000);
+            });
+
+    myPromise
+        .then((message) => {
+            console.log("Fulfilled:", message);
+        })
+        .catch((error) => {
+            console.log("Rejected:", error);
+        })
+        .finally(() => {
+            console.log("Promise completed");
+        });
+        
+    new Promise((resolve) => {
+        resolve(2);
+    })
+        .then((num) => {
+            console.log(num);   // 2
+            return num * 2;
+        })
+        .then((num) => {
+            console.log(num);   // 4
+            return num * 2;
+        })
+        .then((num) => {
+            console.log(num);   // 8
+        });
+
+    let p1 = Promise.resolve("First done");
+    let p2 = new Promise((res) => setTimeout(() => res("Second done"), 2000));
+
+    Promise.all([p1, p2]).then(values => {
+        console.log(values); // ["First done", "Second done"]
+    });
+
+    </script>
+</body>
+</html>
