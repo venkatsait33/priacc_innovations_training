@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input { display: block; margin: 10px 0; padding: 8px; width: 250px;
+    border-radius: 5px; }
+    span { color: red; font-size: 14px; }
+    button { padding: 8px 15px; }
+    .form{
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px;
+      margin: 0 auto;
+    }
+    h2{
+        margin-top: 10px;
+        text-align: center
+    }
+  </style>
+</head>
+<body>
+  <h2>Signup Form</h2>
+  <form id="signupForm" class="form">
+    <input type="text" id="username" placeholder="Username (letters only)">
+    <span id="usernameError"></span>
+
+    <input type="email" id="email" placeholder="Email">
+    <span id="emailError"></span>
+
+    <input type="password" id="password" placeholder="Password">
+    <span id="passwordError"></span>
+
+    <input type="text" id="phone" placeholder="Phone (10 digits)">
+    <span id="phoneError"></span>
+
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // prevent form submission
+      let valid = true;
+
+      // Username validation: only letters
+      const username = document.getElementById("username").value;
+      const usernameRegex = /^[a-zA-Z]+$/;
+      if (!usernameRegex.test(username)) {
+        document.getElementById("usernameError").innerText = "Username should contain only letters.";
+        valid = false;
+      } else {
+        document.getElementById("usernameError").innerText = "";
+      }
+
+      // Email validation
+      const email = document.getElementById("email").value;
+      const emailRegex = /^\S+@\S+\.\S+$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById("emailError").innerText = "Invalid email format.";
+        valid = false;
+      } else {
+        document.getElementById("emailError").innerText = "";
+      }
+
+      // Password validation: 8 chars, at least 1 uppercase and 1 number
+      const password = document.getElementById("password").value;
+      const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+      if (!passwordRegex.test(password)) {
+        document.getElementById("passwordError").innerText = "Password must be 8+ chars, include 1 uppercase & 1 number.";
+        valid = false;
+      } else {
+        document.getElementById("passwordError").innerText = "";
+      }
+
+      // Phone validation: 10 digits
+      const phone = document.getElementById("phone").value;
+      const phoneRegex = /^[0-9]{10}$/;
+      if (!phoneRegex.test(phone)) {
+        document.getElementById("phoneError").innerText = "Phone must be exactly 10 digits.";
+        valid = false;
+      } else {
+        document.getElementById("phoneError").innerText = "";
+      }
+
+      if (valid) {
+        alert("Signup Successful!");
+      }
+    });
+  </script>
+</body>
+</html>
