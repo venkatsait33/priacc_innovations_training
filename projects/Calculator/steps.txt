@@ -1,0 +1,9 @@
+step-1 > create the div and add grid in class 
+step-2 > create the buttons with numbers and operations like +,-,*,% as per calculator order 
+step-3 > add the data-value for to identify the button value and display in screen
+
+step-4 > add the evenListeners for the buttons like buttons, clearbtn and equalsbtn.
+
+step-5 > create a currentInput object to store and display
+
+step-6 > create the function to add the value to the currentInput object
