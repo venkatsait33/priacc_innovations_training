@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+   .btn {
+            @apply bg-gray-300 hover:bg-gray-400 rounded-xl p-4 text-xl font-semibold text-gray-800 transition;
+        }
