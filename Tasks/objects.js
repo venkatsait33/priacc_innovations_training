@@ -42,6 +42,7 @@ const student = {
 }
 
 console.log(student.subjects);
+console.log(student.getDetails());
 
 //  5 => Looping Through Objects
 const user1 = { id: 1, name: 'Alice', role: "Admin" }
