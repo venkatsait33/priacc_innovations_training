@@ -14,14 +14,14 @@ const VendingMachine = () => {
 
     // ✅ Add / Restock product
     const addOrRestockProduct = (newProduct) => {
-        setProducts((prev) => {
-            const existing = prev.find((p) => p.id === newProduct.id);
+        setProducts((product) => {
+            const existing = product.find((p) => p.id === newProduct.id);
             if (existing) {
-                return prev.map((p) =>
+                return product.map((p) =>
                     p.id === newProduct.id ? { ...p, stock: p.stock + newProduct.stock } : p
                 );
             } else {
-                return [...prev, newProduct];
+                return [...product, newProduct];
             }
         });
     };
@@ -67,12 +67,12 @@ const VendingMachine = () => {
     // ✅ Dispense products (with optional change)
     const dispenseProducts = (change = 0) => {
         setProducts((prev) =>
-            prev.map((p) => {
-                const count = cart.filter((c) => c.id === p.id).length;
+            prev.map((product) => {
+                const count = cart.filter((c) => c.id === product.id).length;
                 if (count > 0) {
-                    return { ...p, stock: p.stock - count };
+                    return { ...product, stock: product.stock - count };
                 }
-                return p;
+                return product;
             })
         );
 
