@@ -1,9 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
 
 const studentData = {
-  1: { name: "Aishwarya", course: "React", marks: 95, batch: "A" },
-  2: { name: "Chaitanya", course: "Node.js", marks: 88, batch: "B" },
-  3: { name: "Dinesh", course: "Python", marks: 90, batch: "C" },
+  1: { name: "Venkat", course: "React", marks: 95, batch: "A" },
+  2: { name: "Mahesh", course: "Node.js", marks: 88, batch: "B" },
+  3: { name: "Pavan", course: "Python", marks: 90, batch: "C" },
+  4: { name: "Uma", course: "Java", marks: 90, batch: "A" },
+  5: { name: "King", course: "Devops", marks: 70, batch: "C" },
 };
 
 const StudentDetailsPage = () => {

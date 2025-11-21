@@ -2,9 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const students = [
-  { id: 1, name: "Aishwarya" },
-  { id: 2, name: "Chaitanya" },
-  { id: 3, name: "Dinesh" },
+  { id: 1, name: "Venkat" },
+  { id: 2, name: "Mahesh" },
+  { id: 3, name: "Pavan" },
+  { id: 4, name: "Uma" },
+  { id: 5, name: "king" },
 ];
 const StudentListPage = () => {
   const navigate = useNavigate();
