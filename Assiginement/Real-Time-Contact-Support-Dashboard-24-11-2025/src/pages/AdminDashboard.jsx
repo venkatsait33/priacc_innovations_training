@@ -49,28 +49,28 @@ const AdminDashboard = () => {
           </thead>
 
           <tbody>
-            {contacts.map((c) => (
-              <tr key={c.id}>
-                <td>{c.name}</td>
-                <td>{c.email}</td>
-                <td>{c.issueType}</td>
-                <td>{c.message}</td>
+            {contacts.map((contact) => (
+              <tr key={contact.id}>
+                <td>{contact.name}</td>
+                <td>{contact.email}</td>
+                <td>{contact.issueType}</td>
+                <td>{contact.message}</td>
 
-                <td style={{ color: c.resolved ? "green" : "red" }}>
-                  {c.resolved ? "Resolved" : "Pending"}
+                <td style={{ color: contact.resolved ? "green" : "red" }}>
+                  {contact.resolved ? "Resolved" : "Pending"}
                 </td>
 
                 <td className="flex flex-wrap gap-3">
                   <button
                     className="btn btn-accent"
-                    onClick={() => markResolved(c.id, c)}
+                    onClick={() => markResolved(contact.id, contact)}
                   >
-                    {c.resolved ? "Undo" : "Resolve"}
+                    {contact.resolved ? "Undo" : "Resolve"}
                   </button>
 
                   <button
                     className=" btn btn-error"
-                    onClick={() => deleteContact(c.id)}
+                    onClick={() => deleteContact(contact.id)}
                   >
                     Delete
                   </button>

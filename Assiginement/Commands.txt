@@ -1,0 +1,7 @@
+--> npm run install all the pacakges 
+ 
+--> npx json-server db.json 
+
+-->this cmd is for run the json-server
+
+-->open a new terminal and npm run dev for run the vite React app
