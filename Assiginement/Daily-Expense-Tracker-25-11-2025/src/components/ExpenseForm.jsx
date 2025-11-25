@@ -68,7 +68,7 @@ const ExpenseForm = ({ editing, setEditing }) => {
   };
 
   return (
-    <div className="border-2 p-4 rounded-xl h-60 w-full">
+    <div className="border-2 p-4 rounded-xl lg:h-60 w-full">
       <h3 className="text-xl font-semibold text-center">
         {editing ? "Edit Expense" : "Add Expense"}
       </h3>{" "}
