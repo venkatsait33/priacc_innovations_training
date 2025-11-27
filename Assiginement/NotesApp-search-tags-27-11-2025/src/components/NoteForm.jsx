@@ -43,10 +43,10 @@ const NoteForm = () => {
   };
 
   return (
-    <div className="form">
+    <div className="">
       <h3 style={{ fontSize: "22px" }}>{editing ? "Edit Note" : "Add Note"}</h3>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-        <div>
+        <div className="flex flex-col gap-3">
           <label className="label">Add Text</label>
           <textarea
             cols="30"
