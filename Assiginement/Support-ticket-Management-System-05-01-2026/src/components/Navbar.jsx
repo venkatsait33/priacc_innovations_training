@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setUser } from "../redux/slice/authSlice";
 
 const Navbar = () => {
@@ -12,7 +12,9 @@ const Navbar = () => {
   return (
     <div className="navbar flex justify-between items-center py-4 px-6 ">
       <div className="flex">
-        <h1>Ticketing</h1>
+        <Link to="/" className="text-xl font-semibold">
+          Ticketing
+        </Link>
       </div>
       <div
         className="flex justify-between items-center
