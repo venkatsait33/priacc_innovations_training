@@ -32,7 +32,7 @@ const Login = () => {
     if (role === "user") {
       navigate("/user/dashboard");
     } else if (role === "admin") {
-      navigate("/ ");
+      navigate("/admin/dashboard");
     }
     dispatch(setUser(dispatchData));
   };

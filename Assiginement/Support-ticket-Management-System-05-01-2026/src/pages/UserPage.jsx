@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addTicket } from "../redux/slice/userTicketSlice.js";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const UserPage = () => {
+  const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [data, setData] = useState({
@@ -22,8 +23,15 @@ const UserPage = () => {
       alert("Please login first");
       return;
     }
-    console.log(data);
     dispatch(addTicket({ ticketData: data, userId: user.id }));
+    navigate("/user/dashboard");
+    setData({
+      name: "",
+      email: "",
+      issueType: "",
+      description: "",
+      issuePriority: "",
+    });
   };
   return (
     <div className="p-10 w-fit mx-auto flex flex-col gap-5">
