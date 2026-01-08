@@ -17,6 +17,10 @@ const UserPage = () => {
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+
+  if (user.role === "admin") {
+    navigate("/");
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!user) {

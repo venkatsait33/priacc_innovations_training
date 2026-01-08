@@ -5,10 +5,8 @@ const UserDashboard = () => {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
   const { tickets } = useSelector((state) => state.userTicket);
-  console.log(tickets);
 
   if (!user) {
-    alert("Please login first");
     navigate("/login");
     return;
   }

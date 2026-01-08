@@ -8,6 +8,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(setUser(""));
+    navigate("/login");
   };
   return (
     <div className="navbar flex justify-between items-center py-4 px-6 ">
